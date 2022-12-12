@@ -17,6 +17,11 @@
 		E3844C372946D18300BA1FF1 /* MAPD714_Final_BMICalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C362946D18300BA1FF1 /* MAPD714_Final_BMICalculatorTests.swift */; };
 		E3844C412946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C402946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITests.swift */; };
 		E3844C432946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C422946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITestsLaunchTests.swift */; };
+		E3844C502946D1D600BA1FF1 /* CircularProgrssBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C4F2946D1D600BA1FF1 /* CircularProgrssBar.swift */; };
+		E3844C572947CE9700BA1FF1 /* BmiData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C552947CE9700BA1FF1 /* BmiData+CoreDataClass.swift */; };
+		E3844C582947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C562947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift */; };
+		E3844C5A2947CF7F00BA1FF1 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C592947CF7F00BA1FF1 /* TrackingViewController.swift */; };
+		E3844C5C2947D17400BA1FF1 /* TrackingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C5B2947D17400BA1FF1 /* TrackingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		E3844C3C2946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MAPD714_Final_BMICalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3844C402946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPD714_Final_BMICalculatorUITests.swift; sourceTree = "<group>"; };
 		E3844C422946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPD714_Final_BMICalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3844C4F2946D1D600BA1FF1 /* CircularProgrssBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgrssBar.swift; sourceTree = "<group>"; };
+		E3844C552947CE9700BA1FF1 /* BmiData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BmiData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E3844C562947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BmiData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E3844C592947CF7F00BA1FF1 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
+		E3844C5B2947D17400BA1FF1 /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,8 @@
 		E3844C102946D18100BA1FF1 = {
 			isa = PBXGroup;
 			children = (
+				E3844C552947CE9700BA1FF1 /* BmiData+CoreDataClass.swift */,
+				E3844C562947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift */,
 				E3844C1B2946D18100BA1FF1 /* MAPD714_Final_BMICalculator */,
 				E3844C352946D18300BA1FF1 /* MAPD714_Final_BMICalculatorTests */,
 				E3844C3F2946D18300BA1FF1 /* MAPD714_Final_BMICalculatorUITests */,
@@ -104,6 +116,9 @@
 				E3844C1C2946D18100BA1FF1 /* AppDelegate.swift */,
 				E3844C1E2946D18100BA1FF1 /* SceneDelegate.swift */,
 				E3844C202946D18100BA1FF1 /* ViewController.swift */,
+				E3844C592947CF7F00BA1FF1 /* TrackingViewController.swift */,
+				E3844C5B2947D17400BA1FF1 /* TrackingTableViewCell.swift */,
+				E3844C4F2946D1D600BA1FF1 /* CircularProgrssBar.swift */,
 				E3844C222946D18100BA1FF1 /* Main.storyboard */,
 				E3844C282946D18300BA1FF1 /* Assets.xcassets */,
 				E3844C2A2946D18300BA1FF1 /* LaunchScreen.storyboard */,
@@ -262,8 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3844C272946D18100BA1FF1 /* MAPD714_Final_BMICalculator.xcdatamodeld in Sources */,
+				E3844C5A2947CF7F00BA1FF1 /* TrackingViewController.swift in Sources */,
+				E3844C502946D1D600BA1FF1 /* CircularProgrssBar.swift in Sources */,
+				E3844C5C2947D17400BA1FF1 /* TrackingTableViewCell.swift in Sources */,
 				E3844C212946D18100BA1FF1 /* ViewController.swift in Sources */,
+				E3844C582947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift in Sources */,
 				E3844C1D2946D18100BA1FF1 /* AppDelegate.swift in Sources */,
+				E3844C572947CE9700BA1FF1 /* BmiData+CoreDataClass.swift in Sources */,
 				E3844C1F2946D18100BA1FF1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
