@@ -10,12 +10,30 @@ import UIKit
 class TrackingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var Add: UIBarButtonItem!
     private var dataList: [BmiData] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         getAllData()
+    }
+    
+//    @objc private func didTapAdd() {
+//        let alert = UIAlertController(title: "New Data", message: "Enter new data", preferredStyle: .alert)
+//        alert.addTextField(configurationHandler: nil)
+//        alert.addAction(UIAlertAction(title: "Add", style: .cancel))
+//
+//    }
+    
+    @IBAction func AddData(_ sender: Any) {
+//        var addMessage = UIAlertController(title: "New Data", message: "Please enter new data", preferredStyle: .alert)
+//        let cancel = UIAlertAction(title: "Add", style: .default, handler: {(action) -> Void in})
+//        addMessage.addAction(cancel)
+//        addMessage.addTextField(configurationHandler: nil)
+//        
+//        self.present(addMessage, animated: true, completion: nil)
     }
     
     func getAllData() {
@@ -43,18 +61,48 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            dataList.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+    
+    //delete data from core data
+    func deleteData(data: BmiData) {
+        context.delete(data)
+        do {
+            try context.save()
+            dataList = try
+            context.fetch(BmiData.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            getAllData()
+        }
+        catch {
+            
         }
     }
     
-    func updateData(indexPath:IndexPath){
-        var updateMessage = UIAlertController(title: "Error", message: "Please enter height and weight", preferredStyle: .alert)
-        let update = UIAlertAction(title: "Update", style: .default, handler: {(action) -> Void in})
-        updateMessage.addAction(update)
-        self.present(updateMessage, animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _,_,completion in
+            let data = self.dataList[indexPath.row]
+            self.deleteData(data: data)
+            completion(true)
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
+    
+    
+    func updateData(data: BmiData, newWeight: Float){
+        data.weight = newWeight
+        do {
+            try context.save()
+        }
+        catch {
+            
+        }
+        
+//        var updateMessage = UIAlertController(title: "Error", message: "Please enter height and weight", preferredStyle: .alert)
+//        let update = UIAlertAction(title: "Update", style: .default, handler: {(action) -> Void in})
+//        updateMessage.addAction(update)
+//        self.present(updateMessage, animated: true, completion: nil)
     }
 
 }

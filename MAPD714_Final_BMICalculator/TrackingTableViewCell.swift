@@ -15,11 +15,10 @@ class TrackingTableViewCell: UITableViewCell {
     
     func set(date: Date, weight: Float, mode: String, bmiScore: Float) {
         DateLabel.text = date.formatted()
-        if (mode == "0") {
+        if (mode == "kg") {
             WeightLabel.text = String(weight) + "kg"}
         else {
-            WeightLabel.text = String(weight) + "lb"
-        }
+            WeightLabel.text = String(weight) + "lb"}
         BmiScoreLabel.text = String(bmiScore)
     }
 }
