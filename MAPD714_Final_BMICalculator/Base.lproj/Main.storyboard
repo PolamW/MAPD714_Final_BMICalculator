@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DzP-Uz-3vl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Personal Information-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MAPD714_Final_BMICalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,12 +38,6 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uc0-0M-HJ4">
                                 <rect key="frame" x="213" y="113" width="76" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUB-hC-ejH">
-                                <rect key="frame" x="300" y="113" width="81" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -81,34 +75,34 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0K-mM-V7z">
-                                <rect key="frame" x="120" y="610" width="152" height="27"/>
+                                <rect key="frame" x="69" y="609" width="255" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvt-3E-ked">
-                                <rect key="frame" x="-1" y="59" width="392" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Personal Information" id="3ea-QW-VJJ">
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="8E4-82-yg5">
-                                            <connections>
-                                                <segue destination="BUR-L9-1bz" kind="presentation" modalPresentationStyle="fullScreen" id="fr3-xr-cHf"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5oD-GP-4jd">
+                                <rect key="frame" x="294" y="115" width="92" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="icons8-standing-man-50"/>
+                                    <segment title="" image="icons8-woman-50"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="WGh-T4-SFp"/>
+                    <navigationItem key="navigationItem" title="Personal Information" id="tHq-EW-h2x">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="K0A-ky-Sky">
+                            <connections>
+                                <segue destination="BUR-L9-1bz" kind="show" id="cwv-xt-q5e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="AgeTF" destination="Uc0-0M-HJ4" id="Zfi-ca-cJK"/>
                         <outlet property="DescriptionLabel" destination="u0K-mM-V7z" id="KRk-uu-x1B"/>
-                        <outlet property="GenderTF" destination="SUB-hC-ejH" id="WaK-ML-hrq"/>
                         <outlet property="HeightTF" destination="WiD-Mi-wln" id="47X-Xd-ov7"/>
                         <outlet property="NameTF" destination="uAf-RH-YYw" id="P5n-vF-pmx"/>
                         <outlet property="ScoreLabel" destination="BgB-bY-Mt9" id="Zxi-ys-wve"/>
@@ -119,9 +113,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028.2442748091603" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1954.9618320610687" y="3.5211267605633805"/>
         </scene>
-        <!--Tracking View Controller-->
+        <!--Tracking-->
         <scene sceneID="Mjp-yW-uGg">
             <objects>
                 <viewController id="BUR-L9-1bz" customClass="TrackingViewController" customModule="MAPD714_Final_BMICalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,25 +123,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4p-hf-Hix">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <items>
-                                    <navigationItem title="Tracking" id="HEe-vC-eEH">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.backward" catalog="system" id="krM-B7-wdk">
-                                            <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="1cP-WT-E9y"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="I2H-X0-QwS">
-                                            <connections>
-                                                <action selector="AddData:" destination="BUR-L9-1bz" id="wYm-bC-FhN"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yq7-EE-4YW">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="95" id="hmE-Ik-YHq" customClass="TrackingTableViewCell" customModule="MAPD714_Final_BMICalculator" customModuleProvider="target">
@@ -210,63 +187,138 @@
                         <viewLayoutGuide key="safeArea" id="xXj-BD-fQH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yq7-EE-4YW" firstAttribute="top" secondItem="v4p-hf-Hix" secondAttribute="bottom" id="4q4-fQ-pqR"/>
-                            <constraint firstItem="v4p-hf-Hix" firstAttribute="trailing" secondItem="xXj-BD-fQH" secondAttribute="trailing" id="69U-Ri-jMD"/>
                             <constraint firstItem="yq7-EE-4YW" firstAttribute="leading" secondItem="xXj-BD-fQH" secondAttribute="leading" id="E0w-jf-FP4"/>
-                            <constraint firstItem="yq7-EE-4YW" firstAttribute="top" secondItem="v4p-hf-Hix" secondAttribute="bottom" id="Hmh-an-OxK"/>
                             <constraint firstItem="yq7-EE-4YW" firstAttribute="bottom" secondItem="xXj-BD-fQH" secondAttribute="bottom" id="UnK-Au-5Be"/>
                             <constraint firstItem="yq7-EE-4YW" firstAttribute="trailing" secondItem="xXj-BD-fQH" secondAttribute="trailing" id="VoX-sQ-YqB"/>
-                            <constraint firstItem="v4p-hf-Hix" firstAttribute="top" secondItem="xXj-BD-fQH" secondAttribute="top" id="bcV-G6-LNe"/>
-                            <constraint firstItem="v4p-hf-Hix" firstAttribute="leading" secondItem="xXj-BD-fQH" secondAttribute="leading" id="nQN-bo-Q5z"/>
+                            <constraint firstItem="yq7-EE-4YW" firstAttribute="top" secondItem="xXj-BD-fQH" secondAttribute="top" id="j2w-b0-Hvf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MSA-iQ-ych"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Tracking" id="1de-VN-moD"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="Add" destination="I2H-X0-QwS" id="OhS-1J-DE3"/>
                         <outlet property="tableView" destination="yq7-EE-4YW" id="f8Z-Gl-muJ"/>
+                        <segue destination="4k2-Bc-ceX" kind="presentation" identifier="Edit" modalTransitionStyle="coverVertical" id="opy-Nx-coJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROS-IK-vMl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858.7786259541983" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2729" y="4"/>
         </scene>
-        <!--View Controller-->
+        <!--Update Data-->
         <scene sceneID="Wqc-jS-kmF">
             <objects>
-                <viewController id="4k2-Bc-ceX" sceneMemberID="viewController">
+                <viewController id="4k2-Bc-ceX" customClass="UpdateViewController" customModule="MAPD714_Final_BMICalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VXr-cn-bsA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-ri-rQa">
-                                <rect key="frame" x="0.0" y="0.0" width="392" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Update" id="oy9-Uk-7WC"/>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Height(cm)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euk-C0-Xay">
+                                <rect key="frame" x="35" y="147" width="164" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Weight(kg)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JQi-xY-ceJ">
+                                <rect key="frame" x="35" y="199" width="164" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbO-gu-CiU">
+                                <rect key="frame" x="156" y="625" width="80" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Update"/>
+                                <connections>
+                                    <action selector="Update:" destination="4k2-Bc-ceX" eventType="touchUpInside" id="9Tq-Ya-CJn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xn-NT-XCs">
+                                <rect key="frame" x="149" y="261" width="95" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
+                                <connections>
+                                    <action selector="Calculate:" destination="4k2-Bc-ceX" eventType="touchUpInside" id="AkV-Yc-Hea"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGJ-IG-DIc">
+                                <rect key="frame" x="157" y="335" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-ra-yT8">
+                                <rect key="frame" x="135" y="381" width="121" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xOU-v9-IOB">
+                                <rect key="frame" x="147" y="103" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nR3-Vr-o2z">
-                                <rect key="frame" x="246" y="75" width="131" height="31"/>
+                                <rect key="frame" x="240" y="147" width="137" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Metric"/>
+                                    <segment title="Imperial"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R6Q-sg-l8B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="slF-al-MSS"/>
+                    <navigationItem key="navigationItem" title="Update Data" id="slF-al-MSS"/>
+                    <connections>
+                        <outlet property="newDateTF" destination="xOU-v9-IOB" id="rQJ-F4-18U"/>
+                        <outlet property="newDescriptionLabel" destination="0Jr-ra-yT8" id="VnN-HZ-UsS"/>
+                        <outlet property="newHeightTF" destination="euk-C0-Xay" id="iBN-Xm-loV"/>
+                        <outlet property="newModeControl" destination="nR3-Vr-o2z" id="I8G-hC-Er4"/>
+                        <outlet property="newScoreLabel" destination="aGJ-IG-DIc" id="9Lj-Lc-q5k"/>
+                        <outlet property="newWeightTF" destination="JQi-xY-ceJ" id="uJv-Xa-XPS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYw-wP-DtJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618" y="4"/>
+            <point key="canvasLocation" x="3580.9160305343512" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Abf-Ys-Lv3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DzP-Uz-3vl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8uC-5u-8aO">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZBH-G3-4vL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3s-Zo-jyE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028.2442748091603" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="icons8-standing-man-50" width="50" height="50"/>
+        <image name="icons8-woman-50" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

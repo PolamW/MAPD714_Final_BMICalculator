@@ -21,6 +21,7 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var circularProgress: CircularProgrssBar!
     
+    
     var countBar: CGFloat = 0
     var bmiScore: Float = 0.0
     
@@ -49,7 +50,7 @@ class ViewController: UIViewController{
     
     @IBAction func SubmitPressed(_ sender: UIButton) {
         if HeightTF.text == "" || WeightTF.text == "" {
-            var errorMessage = UIAlertController(title: "Error", message: "Please enter height and weight", preferredStyle: .alert)
+            let errorMessage = UIAlertController(title: "Error", message: "Please enter height and weight", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: {(action) -> Void in})
             errorMessage.addAction(ok)
             self.present(errorMessage, animated: true, completion: nil)

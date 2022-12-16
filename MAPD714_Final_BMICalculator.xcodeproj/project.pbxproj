@@ -22,6 +22,7 @@
 		E3844C582947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C562947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift */; };
 		E3844C5A2947CF7F00BA1FF1 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C592947CF7F00BA1FF1 /* TrackingViewController.swift */; };
 		E3844C5C2947D17400BA1FF1 /* TrackingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3844C5B2947D17400BA1FF1 /* TrackingTableViewCell.swift */; };
+		E3CEDBC8294CD5B800AB8543 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CEDBC7294CD5B800AB8543 /* UpdateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		E3844C562947CE9700BA1FF1 /* BmiData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BmiData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E3844C592947CF7F00BA1FF1 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		E3844C5B2947D17400BA1FF1 /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
+		E3CEDBC7294CD5B800AB8543 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				E3844C202946D18100BA1FF1 /* ViewController.swift */,
 				E3844C592947CF7F00BA1FF1 /* TrackingViewController.swift */,
 				E3844C5B2947D17400BA1FF1 /* TrackingTableViewCell.swift */,
+				E3CEDBC7294CD5B800AB8543 /* UpdateViewController.swift */,
 				E3844C4F2946D1D600BA1FF1 /* CircularProgrssBar.swift */,
 				E3844C222946D18100BA1FF1 /* Main.storyboard */,
 				E3844C282946D18300BA1FF1 /* Assets.xcassets */,
@@ -285,6 +288,7 @@
 				E3844C1D2946D18100BA1FF1 /* AppDelegate.swift in Sources */,
 				E3844C572947CE9700BA1FF1 /* BmiData+CoreDataClass.swift in Sources */,
 				E3844C1F2946D18100BA1FF1 /* SceneDelegate.swift in Sources */,
+				E3CEDBC8294CD5B800AB8543 /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
