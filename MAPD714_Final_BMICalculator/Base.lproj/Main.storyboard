@@ -94,7 +94,7 @@
                                     <navigationItem title="Personal Information" id="3ea-QW-VJJ">
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="8E4-82-yg5">
                                             <connections>
-                                                <segue destination="BUR-L9-1bz" kind="presentation" modalPresentationStyle="fullScreen" id="KJJ-7M-7Ig"/>
+                                                <segue destination="BUR-L9-1bz" kind="presentation" modalPresentationStyle="fullScreen" id="fr3-xr-cHf"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -141,9 +141,6 @@
                                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="I2H-X0-QwS">
                                             <connections>
                                                 <action selector="AddData:" destination="BUR-L9-1bz" id="wYm-bC-FhN"/>
-                                                <segue destination="4k2-Bc-ceX" kind="popoverPresentation" popoverAnchorBarButtonItem="I2H-X0-QwS" id="2ad-XK-PCe">
-                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                </segue>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -153,11 +150,11 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="95" id="hmE-Ik-YHq" customClass="TrackingTableViewCell" customModule="MAPD714_Final_BMICalculator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" rowHeight="95" id="hmE-Ik-YHq" customClass="TrackingTableViewCell" customModule="MAPD714_Final_BMICalculator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hmE-Ik-YHq" id="eZ4-Ai-U9u">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17p-Hk-nky">
@@ -223,6 +220,7 @@
                             <constraint firstItem="v4p-hf-Hix" firstAttribute="leading" secondItem="xXj-BD-fQH" secondAttribute="leading" id="nQN-bo-Q5z"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="MSA-iQ-ych"/>
                     <connections>
                         <outlet property="Add" destination="I2H-X0-QwS" id="OhS-1J-DE3"/>
                         <outlet property="tableView" destination="yq7-EE-4YW" id="f8Z-Gl-muJ"/>
@@ -237,11 +235,29 @@
             <objects>
                 <viewController id="4k2-Bc-ceX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VXr-cn-bsA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-ri-rQa">
+                                <rect key="frame" x="0.0" y="0.0" width="392" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Update" id="oy9-Uk-7WC"/>
+                                </items>
+                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nR3-Vr-o2z">
+                                <rect key="frame" x="246" y="75" width="131" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="R6Q-sg-l8B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="slF-al-MSS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYw-wP-DtJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

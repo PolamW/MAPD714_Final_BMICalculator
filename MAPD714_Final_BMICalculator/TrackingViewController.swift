@@ -13,6 +13,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var Add: UIBarButtonItem!
     private var dataList: [BmiData] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var newWeight: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +23,18 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
     
 //    @objc private func didTapAdd() {
 //        let alert = UIAlertController(title: "New Data", message: "Enter new data", preferredStyle: .alert)
-//        alert.addTextField(configurationHandler: nil)
+//        alert.addTextField{(textField) in textField.text = "Enter your new weight"}
 //        alert.addAction(UIAlertAction(title: "Add", style: .cancel))
 //
 //    }
     
     @IBAction func AddData(_ sender: Any) {
-//        var addMessage = UIAlertController(title: "New Data", message: "Please enter new data", preferredStyle: .alert)
-//        let cancel = UIAlertAction(title: "Add", style: .default, handler: {(action) -> Void in})
-//        addMessage.addAction(cancel)
-//        addMessage.addTextField(configurationHandler: nil)
-//        
-//        self.present(addMessage, animated: true, completion: nil)
+        var addMessage = UIAlertController(title: "New Data", message: "Please enter new weight", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Add", style: .default, handler: {(action) -> Void in})
+        addMessage.addAction(cancel)
+        addMessage.addTextField{(newWeightTF) in newWeightTF.placeholder = "Enter your new weight"}
+        
+        self.present(addMessage, animated: true, completion: nil)
     }
     
     func getAllData() {
@@ -79,6 +80,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    //left swipe to delete from tableview
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _,_,completion in
             let data = self.dataList[indexPath.row]
@@ -89,20 +91,59 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         return configuration
     }
     
-    
-    func updateData(data: BmiData, newWeight: Float){
-        data.weight = newWeight
+    //update data from core data
+    func updateData(data: BmiData){
+        data.bmiScore = newWeight
         do {
             try context.save()
+            getAllData()
         }
         catch {
             
         }
+    }
+    
+    //right swipe to edit page
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {_,_,completion in
+            let data = self.dataList[indexPath.row]
+            self.navigationController.
+        }
+    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        //selected data
+//        let data = self.dataList[indexPath.row].weight
+//        //Create alert
+//        var addMessage = UIAlertController(title: "New Data", message: "Please enter new weight", preferredStyle: .alert)
+//        let cancel = UIAlertAction(title: "Add", style: .default, handler: {(action) -> Void in})
+//        addMessage.addAction(cancel)
+//        addMessage.addTextField{(newWeightTF) in newWeightTF.placeholder = "Enter your new weight"}
+//
+//        self.present(addMessage, animated: true, completion: nil)
+//
+//        let textfield = addMessage.textFields![0]
+//        textfield.text = String(data)
+//
+//        let updateButton = UIAlertAction(title: "Update", style: .default) {(action) in
+//            let textfield = addMessage.textFields![0]
+//            let WeightString = textfield.text
+//            self.newWeight = Float(WeightString!)!
+//
+//        }
+//
+//        do {
+//            try context.save()
+//            getAllData()
+//        }
+//        catch {
+//
+//        }
+//    }
         
 //        var updateMessage = UIAlertController(title: "Error", message: "Please enter height and weight", preferredStyle: .alert)
 //        let update = UIAlertAction(title: "Update", style: .default, handler: {(action) -> Void in})
 //        updateMessage.addAction(update)
 //        self.present(updateMessage, animated: true, completion: nil)
-    }
+    
 
 }
