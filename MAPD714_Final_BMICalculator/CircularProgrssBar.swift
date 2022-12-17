@@ -30,14 +30,14 @@ class CircularProgrssBar: UIView {
         
         backgroundLayer = CAShapeLayer()
         backgroundLayer.path = circularPath.cgPath
-        backgroundLayer.strokeColor = UIColor.purple.cgColor
+        backgroundLayer.strokeColor = UIColor.darkGray.cgColor
         backgroundLayer.fillColor = UIColor.clear.cgColor
         backgroundLayer.lineWidth = lineWidth
         backgroundLayer.lineCap = .round
         
         foregroundLayer = CAShapeLayer()
         foregroundLayer.path = circularPath.cgPath
-        foregroundLayer.strokeColor = UIColor.orange.cgColor
+        foregroundLayer.strokeColor = UIColor.systemMint.cgColor
         foregroundLayer.fillColor = UIColor.clear.cgColor
         foregroundLayer.lineWidth = lineWidth
         foregroundLayer.lineCap = .round

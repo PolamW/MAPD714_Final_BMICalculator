@@ -13,7 +13,7 @@ class TrackingTableViewCell: UITableViewCell {
     @IBOutlet weak var WeightLabel: UILabel!
     @IBOutlet weak var BmiScoreLabel: UILabel!
     
-    func set(date: Date, weight: Float, mode: String, bmiScore: Float) {
+    func record(date: Date, weight: Float, mode: String, bmiScore: Float) {
         DateLabel.text = date.formatted()
         if (mode == "kg") {
             WeightLabel.text = String(weight) + "kg"}

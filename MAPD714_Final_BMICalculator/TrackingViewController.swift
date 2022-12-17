@@ -13,30 +13,13 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private var dataList: [BmiData] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    var newWeight: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         getAllData()
     }
     
-//    @objc private func didTapAdd() {
-//        let alert = UIAlertController(title: "New Data", message: "Enter new data", preferredStyle: .alert)
-//        alert.addTextField{(textField) in textField.text = "Enter your new weight"}
-//        alert.addAction(UIAlertAction(title: "Add", style: .cancel))
-//
-//    }
-    
-//    @IBAction func AddData(_ sender: Any) {
-//        var addMessage = UIAlertController(title: "New Data", message: "Please enter new weight", preferredStyle: .alert)
-//        let cancel = UIAlertAction(title: "Add", style: .default, handler: {(action) -> Void in})
-//        addMessage.addAction(cancel)
-//        addMessage.addTextField{(newWeightTF) in newWeightTF.placeholder = "Enter your new weight"}
-//
-//        self.present(addMessage, animated: true, completion: nil)
-//    }
-//
+    //request for data from core data
     func getAllData() {
         do {
             dataList = try context.fetch(BmiData.fetchRequest())
@@ -58,7 +41,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! TrackingTableViewCell
-        cell.set(date: dataList[indexPath.row].date!, weight: dataList[indexPath.row].weight, mode: dataList[indexPath.row].mode!, bmiScore: dataList[indexPath.row].bmiScore )
+//        cell.record(date: dataList[indexPath.row].date!, weight: dataList[indexPath.row].weight, mode: dataList[indexPath.row].mode!, bmiScore: dataList[indexPath.row].bmiScore)
         return cell
     }
     
@@ -83,10 +66,13 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            if(dataList.count <= 0) {
+                self.performSegue(withIdentifier: "home", sender: data)
+            }
             getAllData()
         }
         catch {
-            
+            print("error")
         }
     }
     
@@ -103,7 +89,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
             getAllData()
         }
         catch {
-
+            print("error")
         }
     }
     
@@ -118,23 +104,23 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         return configuration
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //selected data
-        let data = self.dataList[indexPath.row]
-        //Create alert
-        var addMessage = UIAlertController(title: "New Data", message: "Please enter new weight", preferredStyle: .alert)
-        let update = UIAlertAction(title: "Update", style: .default, handler: {(action) -> Void in})
-        addMessage.addAction(update)
-        addMessage.addTextField{(newWeightTF) in newWeightTF.placeholder = "Enter your new weight"}
-        
-        self.present(addMessage, animated: true, completion: nil)
-        
-        let textfield = addMessage.textFields![0]
-        textfield.text = String(data.weight)
-        let Weight = Float(textfield.text!)!
-        
-        self.updateData(data: data, newWeight: Weight)
-        
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        //selected data
+//        let data = self.dataList[indexPath.row]
+//        //Create alert
+//        var addMessage = UIAlertController(title: "New Data", message: "Please enter new weight", preferredStyle: .alert)
+//        let update = UIAlertAction(title: "Update", style: .default, handler: {(action) -> Void in})
+//        addMessage.addAction(update)
+//        addMessage.addTextField{(newWeightTF) in newWeightTF.placeholder = "Enter your new weight"}
+//
+//        self.present(addMessage, animated: true, completion: nil)
+//
+//        let textfield = addMessage.textFields![0]
+//        textfield.text = String(data.weight)
+//        let Weight = Float(textfield.text!)!
+//
+//        self.updateData(data: data, newWeight: Weight)
+//
 //        data.weight = Float(Weight!)!
         
         //        let updateButton = UIAlertAction(title: "Update", style: .default) {(action) in
@@ -143,19 +129,21 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         //            self.newWeight = Float(WeightString!)!
 //    }
 
-        do {
-            try context.save()
-        }
-        catch {
-
-        }
-        getAllData()
-    }
+//        do {
+//            try context.save()
+//        }
+//        catch {
+//
+//        }
+//        getAllData()
+//    }
         
-//        var updateMessage = UIAlertController(title: "Error", message: "Please enter height and weight", preferredStyle: .alert)
-//        let update = UIAlertAction(title: "Update", style: .default, handler: {(action) -> Void in})
-//        updateMessage.addAction(update)
-//        self.present(updateMessage, animated: true, completion: nil)
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "Edit") {
+            let updateView = segue.destination as? UpdateViewController
+            let data = sender as! BmiData
+            updateView?.data = data
+        }
+    }
 }

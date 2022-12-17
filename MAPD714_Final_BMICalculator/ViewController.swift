@@ -11,7 +11,6 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var NameTF: UITextField!
     @IBOutlet weak var AgeTF: UITextField!
-    @IBOutlet weak var GenderTF: UITextField!
     @IBOutlet weak var HeightTF: UITextField!
     @IBOutlet weak var WeightTF: UITextField!
     
@@ -33,7 +32,7 @@ class ViewController: UIViewController{
         
     }
     
-    
+    //Change text fields placeholder when unit changed
     @IBAction func unitChange(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -48,6 +47,7 @@ class ViewController: UIViewController{
         }
     }
     
+    //Calculation when calculate button is pressed
     @IBAction func SubmitPressed(_ sender: UIButton) {
         if HeightTF.text == "" || WeightTF.text == "" {
             let errorMessage = UIAlertController(title: "Error", message: "Please enter height and weight", preferredStyle: .alert)
@@ -146,11 +146,12 @@ class ViewController: UIViewController{
                 newData.mode = "lb"
             }
             newData.date = Date()
+
             do {
                 try context.save()
             }
             catch {
-                
+                print("Error")
             }
         }
     }

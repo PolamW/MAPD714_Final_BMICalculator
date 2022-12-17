@@ -21,7 +21,7 @@ extension BmiData {
     @NSManaged public var height: Float
     @NSManaged public var weight: Float
     @NSManaged public var mode: String?
-
+    
 }
 
 extension BmiData : Identifiable {
