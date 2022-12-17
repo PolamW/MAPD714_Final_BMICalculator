@@ -30,19 +30,19 @@
                                         <rect key="frame" x="211" y="33" width="76" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height(cm)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiD-Mi-wln">
                                         <rect key="frame" x="9" y="83" width="110" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight(kg)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6nW-il-YrU">
                                         <rect key="frame" x="139" y="83" width="100" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NSt-uu-0Pk">
                                         <rect key="frame" x="242" y="85" width="137" height="32"/>
@@ -161,7 +161,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shM-dt-KKe">
-                                                    <rect key="frame" x="81" y="51" width="55" height="21"/>
+                                                    <rect key="frame" x="81" y="51" width="88" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.090196087960000004" green="0.1725490093" blue="0.29803922770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -228,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROS-IK-vMl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2729" y="4"/>
+            <point key="canvasLocation" x="2727.4809160305344" y="3.5211267605633805"/>
         </scene>
         <!--Update Data-->
         <scene sceneID="Wqc-jS-kmF">
@@ -262,6 +262,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="Update:" destination="4k2-Bc-ceX" eventType="touchUpInside" id="9Tq-Ya-CJn"/>
+                                    <segue destination="BUR-L9-1bz" kind="show" id="Aob-kW-Oc3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xn-NT-XCs">
@@ -384,6 +385,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="opy-Nx-coJ"/>
+        <segue reference="Aob-kW-Oc3"/>
         <segue reference="FM4-fr-zcR"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -3,6 +3,7 @@
 //  MAPD714_Final_BMICalculator
 //
 //  Created by Po Lam Wong on 12/12/2022.
+//  Student ID: 301258847
 //
 
 import UIKit
@@ -27,7 +28,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.tableView.reloadData()
             }
         }catch{
-            
+            print("error")
         }
     }
     
@@ -41,7 +42,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! TrackingTableViewCell
-//        cell.record(date: dataList[indexPath.row].date!, weight: dataList[indexPath.row].weight, mode: dataList[indexPath.row].mode!, bmiScore: dataList[indexPath.row].bmiScore)
+        cell.record(date: dataList[indexPath.row].date!, weight: dataList[indexPath.row].weight, mode: dataList[indexPath.row].mode!, bmiScore: dataList[indexPath.row].bmiScore)
         return cell
     }
     
@@ -76,23 +77,6 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    //update data from core data
-    func updateData(data: BmiData, newWeight: Float){
-        data.weight = newWeight
-        do {
-            try context.save()
-            dataList = try
-            context.fetch(BmiData.fetchRequest())
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            getAllData()
-        }
-        catch {
-            print("error")
-        }
-    }
-    
     //right swipe to edit page
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Edit") {_,_,completion in
@@ -103,40 +87,6 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         let configuration = UISwipeActionsConfiguration(actions: [editAction])
         return configuration
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //selected data
-//        let data = self.dataList[indexPath.row]
-//        //Create alert
-//        var addMessage = UIAlertController(title: "New Data", message: "Please enter new weight", preferredStyle: .alert)
-//        let update = UIAlertAction(title: "Update", style: .default, handler: {(action) -> Void in})
-//        addMessage.addAction(update)
-//        addMessage.addTextField{(newWeightTF) in newWeightTF.placeholder = "Enter your new weight"}
-//
-//        self.present(addMessage, animated: true, completion: nil)
-//
-//        let textfield = addMessage.textFields![0]
-//        textfield.text = String(data.weight)
-//        let Weight = Float(textfield.text!)!
-//
-//        self.updateData(data: data, newWeight: Weight)
-//
-//        data.weight = Float(Weight!)!
-        
-        //        let updateButton = UIAlertAction(title: "Update", style: .default) {(action) in
-        //            let textfield = addMessage.textFields![0]
-        //            let WeightString = textfield.text
-        //            self.newWeight = Float(WeightString!)!
-//    }
-
-//        do {
-//            try context.save()
-//        }
-//        catch {
-//
-//        }
-//        getAllData()
-//    }
         
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

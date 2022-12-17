@@ -3,6 +3,7 @@
 //  MAPD714_Final_BMICalculator
 //
 //  Created by Po Lam Wong on 16/12/2022.
+//  Student ID: 301258847
 //
 
 import UIKit
@@ -59,6 +60,8 @@ class UpdateViewController: UIViewController {
             newHeightTF.placeholder = "Height(in)"
             newWeightTF.placeholder = "Weight(lb)"
         default:
+            HeightLabel.text = "Height(cm)"
+            WeightLabel.text = "Weight(kg)"
             newHeightTF.placeholder = "Height(cm)"
             newWeightTF.placeholder = "Weight(kg)"
         }
@@ -160,13 +163,10 @@ class UpdateViewController: UIViewController {
     
     //Update new data to the core data
     func updateData(data: BmiData) {
-        let newData = BmiData(context: context)
-        newData.date = Date()
-        newData.height = Float(newHeightTF.text!)!
-        newData.weight = Float(newWeightTF.text!)!
-        newData.bmiScore = Float(newScoreLabel.text!)!
-        print(Date())
-        print(newData.weight)
+        data.date = Date()
+        data.height = Float(newHeightTF.text!)!
+        data.weight = Float(newWeightTF.text!)!
+        data.bmiScore = Float(newScoreLabel.text!)!
         do{
             try context.save()
         } catch {
